@@ -1,3 +1,4 @@
+import 'package:blog_app/core/theme/theme.dart';
 import 'package:blog_app/features/auth/Presentation/pages/signup_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
+      debugShowCheckedModeBanner: false, //removes the debug banner 
+      title: AppTheme.darkThemeMode,
       home: const SignUpPage(),
     );
   }
