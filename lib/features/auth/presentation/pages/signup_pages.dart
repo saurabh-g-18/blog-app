@@ -30,8 +30,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      appBar: AppBar(), //gives access to the back tab icon
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(

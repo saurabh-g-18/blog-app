@@ -11,6 +11,9 @@ class AppTheme{
         );
   static final darkThemeMode = ThemeData.dark().copyWith(
       scaffoldBackgroundColor: AppPallete.backgroundColor,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppPallete.backgroundColor,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: EdgeInsets.all(23),
         enabledBorder: _border(), // border will be seen before clicking
