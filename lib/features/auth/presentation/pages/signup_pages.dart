@@ -36,8 +36,17 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(height: 20),
               RichText(
                 text: TextSpan(
-                  text: 'Don\'t have an account?',
+                  text: 'Already have an account? ',
                   style: Theme.of(context).textTheme.titleMedium,
+                  children: [
+                    TextSpan(
+                      text: 'Sign In',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.blueAccent,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                   ),
                 ),
 
