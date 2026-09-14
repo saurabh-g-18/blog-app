@@ -4,9 +4,7 @@ import 'package:blog_app/features/auth/presentation/widgets/auth_gradient_button
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  static route() => MaterialPageRoute(
-         builder: (context) => LoginPage(),
-     );
+  static route() => MaterialPageRoute(builder: (context) => LoginPage());
   const LoginPage({super.key});
 
   @override
@@ -18,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
-@override
+  @override
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -27,7 +25,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -38,55 +35,44 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Text(
                 'Sign In',
-                style: TextStyle(
-                  fontSize: 45,
-                  fontWeight: FontWeight.bold,
-                ),
-                ),
-                SizedBox(height: 15),
-                AuthField(
-                  hintText: 'Email',
-                   controller: emailController,
-                   ),
-                SizedBox(height: 15),
-                AuthField(
-                  hintText: 'Password',
-                   controller: passwordController,
-                    isObscureText: true,
-                    ),
-                SizedBox(height: 20),
-                AuthGradientButton(
-                  buttonText: 'Sign In',
-                ),
-                SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () { 
-                    Navigator.push(
-                      context,
-                      SignUpPage.route(),
-                      ); 
-                  },
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Don\'t have an account? ',
-                      style: Theme.of(context).textTheme.titleMedium,
-                      children: [
-                        TextSpan(
-                          text: 'Sign Up',
-                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            color: Colors.blueAccent,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 15),
+              AuthField(hintText: 'Email', controller: emailController),
+              SizedBox(height: 15),
+              AuthField(
+                hintText: 'Password',
+                controller: passwordController,
+                isObscureText: true,
+              ),
+              SizedBox(height: 20),
+              AuthGradientButton(buttonText: 'Sign In', onPressed: () {}),
+              SizedBox(height: 20),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, SignUpPage.route());
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Don\'t have an account? ',
+                    style: Theme.of(context).textTheme.titleMedium,
+                    children: [
+                      TextSpan(
+                        text: 'Sign Up',
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              color: Colors.blueAccent,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
-                    ),
+                    ],
+                  ),
                 ),
-          
+              ),
             ],
           ),
         ),
-      )
+      ),
     );
   }
 }
