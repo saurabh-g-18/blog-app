@@ -69,10 +69,15 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<UserModel?> getCurrentUserData() async {
     try {
-      final userData = await supabaseClient
-          .from('profiles')
-          .select()
-          .eq('id', currentUserSession!.user.id);
+      if (currentUserSession != null) {
+        final userData = await supabaseClient
+            .from('profiles')
+            .select()
+            .eq('id', currentUserSession!.user.id);
+        return UserModel.fromJson(userData.first);
+      }
+
+      return null;
     } catch (e) {
       throw ServerException(e.toString());
     }
