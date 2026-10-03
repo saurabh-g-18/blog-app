@@ -14,7 +14,7 @@ class AppTheme {
       side: BorderSide.none,
     ),
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.all(23),
+      contentPadding: EdgeInsets.all(27),
       enabledBorder: _border(), // border will be seen before clicking
       focusedBorder: _border(
         AppPallete.gradient3,
