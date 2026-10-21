@@ -7,10 +7,10 @@ final class BlogInitial extends BlogState {}
 
 final class BlogLoading extends BlogState {}
 
-final class Blogfailure extends BlogState {
+final class BlogFailure extends BlogState {
   final String error;
 
-  Blogfailure(this.error);
+  BlogFailure(this.error);
 }
 
 final class BlogSuccess extends BlogState {}
