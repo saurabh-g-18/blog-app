@@ -15,10 +15,10 @@ class AppTheme {
     ),
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.all(27),
+      border: _border(), // border will be seen before clicking
       enabledBorder: _border(), // border will be seen before clicking
-      focusedBorder: _border(
-        AppPallete.gradient3,
-      ), // border will be seen after clicked
+      focusedBorder: _border(AppPallete.gradient3),
+      errorBorder: _border(AppPallete.errorColor), // border will be seen after clicked
     ),
   );
 }
