@@ -40,7 +40,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
               selectedTopics.isNotEmpty && 
               image != null){
                 final posterId = (context.read<AppUserCubit>().state as AppUserLoggedIn).user.id;
-                context.read<BlogBloc>().add(UploadBlogEvent(
+                context.read<BlogBloc>().add(BlogUpload(
                   posterId: posterId, 
                   title: titleConrtrolller.text, 
                   content: contentConrtrolller.text, 

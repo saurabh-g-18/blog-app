@@ -1,7 +1,4 @@
-part of 'app_user_.dart';
-
-import 'package:blog_app/core/common/entities/user.dart';
-import 'package:flutter/material.dart';
+part of 'app_user_cubit.dart';
 
 @immutable
 sealed class AppUserState {}

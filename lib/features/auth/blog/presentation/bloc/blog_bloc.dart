@@ -17,11 +17,11 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       emit(BlogLoading());
     });
 
-    on<UploadBlogEvent>(_onUploadBlogEvent);
+    on<BlogUpload>(_onUploadBlogEvent);
   }
 
   Future<void> _onUploadBlogEvent(
-    UploadBlogEvent event,
+    BlogUpload event,
     Emitter<BlogState> emit,
   ) async {
     final res = await uploadBlog(
