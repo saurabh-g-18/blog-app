@@ -64,6 +64,12 @@ void _initAuth() {
 void _initBlog() {
   // UseCases
   serviceLocator.registerFactory(
+    () => GetAllBlogs(
+      serviceLocator(),
+    ),
+  );
+  
+  serviceLocator.registerFactory(
     () => UploadBlog(
       serviceLocator(),
       ),
