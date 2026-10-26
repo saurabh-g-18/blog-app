@@ -144,7 +144,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children:
-                            ['AI', 'Programming', 'Business', 'Entertainment']
+                            ['AI', 'Programming', 'Business', 'Entertainment', 'Sports', 'Politics', 'Science', 'Health', 'Other']
                                 .map(
                                   (e) => Padding(
                                     padding: const EdgeInsets.all(5.0),
