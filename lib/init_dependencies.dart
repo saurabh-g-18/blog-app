@@ -33,6 +33,7 @@ Future<void> initDependencies() async {
   );
 
   Hive.init((await getApplicationDocumentsDirectory()).path);
+  await Hive.openBox('blogs');
 
   serviceLocator.registerLazySingleton(() => supabase.client);
 
@@ -52,7 +53,7 @@ void _initAuth() {
     () => AuthRemoteDataSourceImpl(serviceLocator()),
   );
 
-  // Repsoitory
+  // Repository
   serviceLocator.registerFactory<AuthRepository>(
     () => AuthRepositoryImpl(
       serviceLocator(), 
