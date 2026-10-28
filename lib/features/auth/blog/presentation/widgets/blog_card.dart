@@ -27,7 +27,7 @@ class BlogCard extends StatelessWidget {
          padding: EdgeInsets.all(16),
          decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(10)
+          borderRadius: BorderRadius.circular(30)
          ),
          child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

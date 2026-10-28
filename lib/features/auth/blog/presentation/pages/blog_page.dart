@@ -56,7 +56,10 @@ class _BlogPageState extends State<BlogPage> {
                 final blog = state.blogs[index];
                 return BlogCard(
                   blog: blog,
-                  color: index % 3 == 0 ? Color.fromRGBO(165, 59, 35, 1) : index % 3 == 1 ? const Color.fromARGB(255, 90, 151, 20) : const Color.fromARGB(255, 139, 38, 155),
+                  color: index % 4 == 0 ? Color.fromRGBO(162, 64, 49, 1) 
+                  : index % 4 == 1 ? const Color.fromARGB(255, 96, 153, 31) 
+                  : index % 4 == 2 ? const Color.fromARGB(255, 130, 133, 52) 
+                  :  const Color.fromARGB(255, 56, 141, 206) 
                   );
               },
             );
