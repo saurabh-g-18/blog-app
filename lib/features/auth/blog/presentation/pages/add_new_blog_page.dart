@@ -119,7 +119,7 @@ class _AddNewBlogPageState extends State<AddNewBlogPage> {
                               options: RoundedRectDottedBorderOptions(
                                 color: AppPallete.borderColor,
                                 dashPattern: [10, 4],
-                                radius: Radius.circular(10),
+                                radius: Radius.circular(15),
                                 strokeWidth: 1,
                                 strokeCap: StrokeCap.round,
                               ),

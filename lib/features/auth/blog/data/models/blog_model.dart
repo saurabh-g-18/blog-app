@@ -34,6 +34,7 @@ class BlogModel extends Blog {
       updatedAt: map['update_at'] == null
           ? DateTime.now()
           : DateTime.parse(map['updated_at']),
+      posterName: map['poster_name'] as String?,
     );
   }
 
@@ -47,6 +48,7 @@ class BlogModel extends Blog {
     DateTime? updatedAt,
     String? posterName,
   }) {
+
     return BlogModel(
       id: id ?? this.id,
       posterId: posterId ?? this.posterId,
