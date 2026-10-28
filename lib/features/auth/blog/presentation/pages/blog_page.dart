@@ -1,16 +1,17 @@
+
 import 'package:blog_app/core/common/widgets/loader.dart';
 import 'package:blog_app/core/utils/show_snackbar.dart';
 import 'package:blog_app/features/auth/blog/presentation/bloc/blog_bloc.dart';
 import 'package:blog_app/features/auth/blog/presentation/pages/add_new_blog_page.dart';
 import 'package:blog_app/features/auth/blog/presentation/widgets/blog_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlogPage extends StatefulWidget {
   static route() => MaterialPageRoute(
-    builder: (context) => const BlogPage(),
-    );
+        builder: (context) => const BlogPage(),
+      );
+
   const BlogPage({super.key});
 
   @override
@@ -18,53 +19,210 @@ class BlogPage extends StatefulWidget {
 }
 
 class _BlogPageState extends State<BlogPage> {
+  static const Color paper = Color(0xFFF7F3EB);
+  static const Color ink = Color(0xFF292821);
+  static const Color muted = Color(0xFF77736C);
+  static const Color accent = Color(0xFFB65E45);
 
-   @override
+  @override
   void initState() {
     super.initState();
     context.read<BlogBloc>().add(BlogFetchAllBlogs());
   }
+
+  Future<void> _openCreateBlogPage() async {
+    await Navigator.push(
+      context,
+      AddNewBlogPage.route(),
+    );
+
+    if (!mounted) return;
+
+    // Refresh after returning in case a post was created.
+    context.read<BlogBloc>().add(BlogFetchAllBlogs());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: paper,
       appBar: AppBar(
-        title: Text('Blog App'),
+        backgroundColor: paper,
+        foregroundColor: ink,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        title: const Text(
+          'The Reading Room',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            letterSpacing: -0.4,
+          ),
+        ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(context, AddNewBlogPage.route());
-            },
-            icon: Icon(CupertinoIcons.add_circled),
+            tooltip: 'Write a new story',
+            onPressed: _openCreateBlogPage,
+            icon: const Icon(Icons.edit_note_rounded),
+            color: accent,
           ),
+          const SizedBox(width: 8),
         ],
       ),
       body: BlocConsumer<BlogBloc, BlogState>(
         listener: (context, state) {
-          if(state is BlogFailure) {
+          if (state is BlogFailure) {
             showSnackBar(context, state.error);
           }
         },
         builder: (context, state) {
-          if(state is BlogLoading) {
-            return const Loader();
-          }
-          if(state is BlogDisplaySuccess) {
-            return ListView.builder(
-              itemCount: state.blogs.length,
-              itemBuilder: (context, index) {
-                final blog = state.blogs[index];
-                return BlogCard(
-                  blog: blog,
-                  color: index % 4 == 0 ? Color.fromRGBO(162, 64, 49, 1) 
-                  : index % 4 == 1 ? const Color.fromARGB(255, 96, 153, 31) 
-                  : index % 4 == 2 ? const Color.fromARGB(255, 130, 133, 52) 
-                  :  const Color.fromARGB(255, 56, 141, 206) 
-                  );
-              },
+          if (state is BlogLoading) {
+            return const Center(
+              child: Loader(),
             );
           }
-          return const SizedBox();
-          
+
+          if (state is BlogDisplaySuccess) {
+            if (state.blogs.isEmpty) {
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(32),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.menu_book_rounded,
+                        size: 52,
+                        color: accent,
+                      ),
+                      const SizedBox(height: 18),
+                      const Text(
+                        'Your next favorite story starts here.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: ink,
+                          fontSize: 22,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Be the first to share an idea with the community.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: muted,
+                          fontSize: 15,
+                          height: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: 22),
+                      FilledButton.icon(
+                        onPressed: _openCreateBlogPage,
+                        icon: const Icon(Icons.edit_rounded),
+                        label: const Text('Write a story'),
+                        style: FilledButton.styleFrom(
+                          backgroundColor: accent,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 22,
+                            vertical: 14,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+
+            return ListView(
+              padding: const EdgeInsets.fromLTRB(18, 18, 18, 32),
+              children: [
+                const Text(
+                  'Ideas, stories & perspectives',
+                  style: TextStyle(
+                    color: ink,
+                    fontSize: 27,
+                    fontWeight: FontWeight.w700,
+                    height: 1.2,
+                    letterSpacing: -0.7,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'A little inspiration for wherever your day takes you.',
+                  style: TextStyle(
+                    color: muted,
+                    fontSize: 15,
+                    height: 1.5,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                ...state.blogs.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final blog = entry.value;
+
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 18),
+                    child: BlogCard(
+                      blog: blog,
+                      color: [
+                        const Color(0xFFB65E45),
+                        const Color(0xFF53664F),
+                        const Color(0xFF8A7654),
+                        const Color(0xFF627F91),
+                      ][index % 4],
+                    ),
+                  );
+                }),
+              ],
+            );
+          }
+
+          if (state is BlogFailure) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.cloud_off_rounded,
+                      size: 44,
+                      color: muted,
+                    ),
+                    const SizedBox(height: 12),
+                    const Text(
+                      'We couldn’t load the stories.',
+                      style: TextStyle(
+                        color: ink,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Check your connection and try again.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: muted),
+                    ),
+                    const SizedBox(height: 18),
+                    OutlinedButton.icon(
+                      onPressed: () {
+                        context
+                            .read<BlogBloc>()
+                            .add(BlogFetchAllBlogs());
+                      },
+                      icon: const Icon(Icons.refresh_rounded),
+                      label: const Text('Try again'),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+
+          return const SizedBox.shrink();
         },
       ),
     );
