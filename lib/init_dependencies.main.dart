@@ -45,6 +45,8 @@ void _initAuth() {
 
   serviceLocator.registerFactory(() => UserLogin(serviceLocator()));
 
+  serviceLocator.registerLazySingleton(() => UserLogout(serviceLocator()));
+
   serviceLocator.registerFactory(() => CurrentUser(serviceLocator()));
 
   // Bloc
@@ -52,6 +54,7 @@ void _initAuth() {
     () => AuthBloc(
       userSignUp: serviceLocator(),
       userLogin: serviceLocator(),
+      userLogout: serviceLocator(),
       currentUser: serviceLocator(),
       appUserCubit: serviceLocator(),
     ),
