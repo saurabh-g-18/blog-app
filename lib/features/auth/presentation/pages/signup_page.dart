@@ -41,8 +41,10 @@ class _SignUpPageState extends State<SignUpPage> {
         backgroundColor: AppPallete.backgroundColor,
         elevation: 0,
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: const Icon(
+          onPressed: () => Navigator.of(context).pushReplacement(
+            LoginPage.route(),
+          ),
+          icon: Icon(
             Icons.arrow_back_ios_new_rounded,
             color: AppPallete.textColor,
           ),
