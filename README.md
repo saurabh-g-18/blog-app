@@ -1,4 +1,4 @@
-# blog_app: The Reading Book
+# The Reading Room
 
 # Flutter Blog App — Launcher Icon Notes
 
@@ -52,28 +52,4 @@ flutter run
 ```
 
 If the old icon remains on the simulator, uninstall the app and run it again.
-
-## 5. Before a future release build
-
-Generate the icon if needed, then build the desired platform:
-
-**Android**
-```bash
-flutter build apk --release
-```
-
-**iOS**
-```bash
-flutter build ios --release
-```
-
-For iOS distribution, use the appropriate signing and archive workflow in Xcode.
-
-## Important reminders
-
-- Keep the icon image at the configured path.
-- Preserve the correct filename and extension.
-- Commit the icon image, `pubspec.yaml`, and generated native icon assets to Git.
-- Check the launcher icon on both Android and iOS.
-- Don't run `flutter clean` for every build; use it when troubleshooting or when necessary.
 
