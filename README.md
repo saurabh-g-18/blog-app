@@ -1,8 +1,8 @@
 # The Reading Room
 
-# Flutter Blog App — Launcher Icon Notes
+## Flutter Blog App — Launcher Icon Notes
 
-## 1. Icon configuration
+### 1. Icon configuration
 
 **Icon image path:** `assets/icons/app_icon.jpeg`
 
@@ -23,7 +23,7 @@ flutter_launcher_icons:
 
 Keep the `flutter_launcher_icons` configuration at the top level of `pubspec.yaml`, aligned with `dependencies` and `dev_dependencies`.
 
-## 2. When to regenerate the icon
+### 2. When to regenerate the icon
 
 Run this only when you change the icon image or its configuration:
 
@@ -31,7 +31,7 @@ Run this only when you change the icon image or its configuration:
 dart run flutter_launcher_icons
 ```
 
-## 3. Normal development
+### 3. Normal development
 
 For ordinary code changes, use:
 
@@ -41,7 +41,7 @@ flutter run
 
 Hot reload and hot restart are normally sufficient for Dart code changes.
 
-## 4. When the launcher icon doesn't update
+### 4. When the launcher icon doesn't update
 
 Run these commands from the project root:
 
