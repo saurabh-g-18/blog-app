@@ -1,7 +1,8 @@
 # The Reading Room
 
-[text](<../../../Users/saurabhkumargupta/Desktop/saurabh-g-18_blog-app architecture diagram_ how it works.html>)
+## 🏗️ Project Architecture
 
+![Project Architecture](assets/architecture.png)
 
 ## 🛠️ Tech Stack
 
