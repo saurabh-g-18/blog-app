@@ -123,3 +123,55 @@ flutter run
 If the old icon still appears on the simulator, delete the installed app and reinstall it by running `flutter run` again.
 
 
+## Adding Images to iOS Simulator Gallery
+
+If you want to test image selection functionality in your Flutter app, you can import images into the iOS Simulator's Photos gallery.
+
+### Method 1: Using Drag and Drop
+
+1. Open the iOS Simulator.
+2. Open Finder on your Mac.
+3. Locate the image you want to import.
+4. Drag and drop the image into the Simulator window.
+5. Open the Photos app inside the Simulator.
+6. Check the Recents album for the imported image.
+
+### Method 2: Using Terminal (Recommended)
+
+If drag and drop doesn't work, use the following command.
+
+**Import a single image:**
+
+```bash
+xcrun simctl addmedia booted ~/Downloads/photo.jpg
+```
+
+Replace `photo.jpg` with your actual image filename.
+
+**Import multiple JPG images:**
+
+```bash
+xcrun simctl addmedia booted ~/Downloads/*.jpg
+```
+
+**Import PNG images:**
+
+```bash
+xcrun simctl addmedia booted ~/Downloads/*.png
+```
+
+### Verify Imported Images
+
+1. Make sure your iOS Simulator is running.
+2. Open the Photos app.
+3. Navigate to Recents.
+4. Verify that your imported images are visible.
+
+### Troubleshooting
+
+- Ensure the iOS Simulator is running before executing the command.
+- Check that the image filename and file path are correct.
+- Use `xcrun simctl list devices booted` to check running simulators.
+- If multiple simulators are running, specify the target simulator's UDID instead of using `booted`.
+
+
