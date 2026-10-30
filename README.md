@@ -2,7 +2,7 @@
 
 ## 🏗️ Project Architecture
 
-![Project Architecture](assets/architecture.png)
+![alt text](<Screenshot 2026-10-30 at 12.44.24 PM.png>)
 
 ## 🛠️ Tech Stack
 
