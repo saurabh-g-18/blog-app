@@ -1,5 +1,60 @@
 # The Reading Room
 
+
+## 🛠️ Tech Stack
+
+### Frontend
+<p align="left">
+  <a href="https://flutter.dev/">
+    <img src="https://skillicons.dev/icons?i=flutter" width="48" height="48" alt="Flutter"/>
+  </a>
+  <a href="https://dart.dev/">
+    <img src="https://skillicons.dev/icons?i=dart" width="48" height="48" alt="Dart"/>
+  </a>
+</p>
+
+### Backend & Database
+<p align="left">
+  <a href="https://supabase.com/">
+    <img src="https://skillicons.dev/icons?i=supabase" width="48" height="48" alt="Supabase"/>
+  </a>
+  <a href="https://www.postgresql.org/">
+    <img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="PostgreSQL"/>
+  </a>
+  <img src="https://img.shields.io/badge/Hive-Local%20Database-FFC107?style=for-the-badge" alt="Hive"/>
+</p>
+
+### State Management & Architecture
+<p align="left">
+  <img src="https://img.shields.io/badge/Flutter%20BLoC-State%20Management-5B6ABF?style=for-the-badge" alt="Flutter BLoC"/>
+  <img src="https://img.shields.io/badge/GetIt-Dependency%20Injection-4B8BBE?style=for-the-badge" alt="GetIt"/>
+  <img src="https://img.shields.io/badge/Fpdart-Functional%20Programming-6A5ACD?style=for-the-badge" alt="Fpdart"/>
+</p>
+
+### Tools & Version Control
+<p align="left">
+  <a href="https://git-scm.com/">
+    <img src="https://skillicons.dev/icons?i=git" width="48" height="48" alt="Git"/>
+  </a>
+  <a href="https://github.com/">
+    <img src="https://skillicons.dev/icons?i=github" width="48" height="48" alt="GitHub"/>
+  </a>
+  <a href="https://code.visualstudio.com/">
+    <img src="https://skillicons.dev/icons?i=vscode" width="48" height="48" alt="VS Code"/>
+  </a>
+</p>
+
+### Architecture
+- Clean Architecture
+- Repository Pattern
+- BLoC Pattern
+- Dependency Injection
+
+### Storage
+- **Supabase Storage:** Cloud-based blog image storage.
+- **Hive:** Local NoSQL database for on-device data persistence.
+
+
 ## Flutter Blog App — Launcher Icon Notes
 
 ### 1. Icon configuration
@@ -136,7 +191,7 @@ If you want to test image selection functionality in your Flutter app, you can i
 5. Open the Photos app inside the Simulator.
 6. Check the Recents album for the imported image.
 
-### Method 2: Using Terminal (Recommended)
+### Method 2: Using Terminal 
 
 If drag and drop doesn't work, use the following command.
 
