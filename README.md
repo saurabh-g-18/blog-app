@@ -1,5 +1,7 @@
 # The Reading Room
 
+[text](<../../../Users/saurabhkumargupta/Desktop/saurabh-g-18_blog-app architecture diagram_ how it works.html>)
+
 
 ## 🛠️ Tech Stack
 
