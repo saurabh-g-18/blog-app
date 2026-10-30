@@ -8,7 +8,7 @@ The goal of The Reading Room is to create a comfortable digital space for readin
 ## Project Internals
 
 <p align="center">
-  <img src="assets/screenshots/login.png" width="200" alt="Login Screen">
+  <img src="assets/screenshots/login.png" width="150" alt="Login Screen">
   <img src="assets/screenshots/signup.png" width="200" alt="Signup Screen">
   <img src="assets/screenshots/home.png" width="200" alt="Home Screen">
 </p>
