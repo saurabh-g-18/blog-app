@@ -6,14 +6,18 @@
 The goal of The Reading Room is to create a comfortable digital space for reading, writing, and sharing ideas through a clean and intuitive user experience.
 
 ## Project Internals
+
 <p align="center">
-  <img src="./Screenshot iPhone 13 28-10-2026 at 7.19.08 PM.png" width="200" alt="Login Screen">
+  <img src="assets/screenshots/login.png" width="200" alt="Login Screen">
+  <img src="assets/screenshots/signup.png" width="200" alt="Signup Screen">
+  <img src="assets/screenshots/home.png" width="200" alt="Home Screen">
 </p>
-![alt text](<Screenshot iPhone 13 28-10-2026 at 7.19.15 PM.png>)
-![alt text](<Screenshot iPhone 13 28-10-2026 at 7.17.32 PM.png>)
-![alt text](<Screenshot iPhone 13 28-10-2026 at 7.17.13 PM.png>)
-![alt text](<Screenshot iPhone 13 28-10-2026 at 7.16.30 PM.png>)
-![alt text](<Screenshot iPhone 13 28-10-2026 at 7.16.58 PM.png>)
+
+<p align="center">
+  <img src="assets/screenshots/blog_viewer.png" width="200" alt="Blog Viewer">
+  <img src="assets/screenshots/add_blog.png" width="200" alt="Add Blog">
+</p>
+
 
 
 ## 🏗️ Project Architecture
